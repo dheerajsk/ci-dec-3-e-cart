@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 function Home() {
   console.log("rerendering");
   const [products, setProducts] = useState([]);
+  const [error, setError] = useState();
   //   const [click, setClick] = useState(0);
   //   const [click2, setClick2] = useState(0);
   // async call.
@@ -18,6 +19,11 @@ function Home() {
         console.log("response received");
         // we are changing state of component.
         setProducts(jsonResponse);
+        setError();
+      })
+      .catch((err) => {
+        console.log(err);
+        setError(err);
       });
   }, []);
 
@@ -25,6 +31,7 @@ function Home() {
     <div>
       <Header />
       <div className="container mt-3">
+        {error && <h2 className="mt-3">No Products to Show</h2>}
         {/* <h2>{click}</h2>
       <button
         onClick={() => {
@@ -42,7 +49,7 @@ function Home() {
 
         <div className="row">
           {products.map((p, i) => (
-            <div className="col-md-3">
+            <div key={i} className="col-md-3">
               <ProductCard item={p} key={i} />
             </div>
           ))}

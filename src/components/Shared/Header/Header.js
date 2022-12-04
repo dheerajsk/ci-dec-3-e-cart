@@ -28,6 +28,13 @@ function Header() {
         </button>
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="flex-items navbar-nav me-auto mb-2 mb-lg-0">
+          <li className="nav-item">
+              <a className="btn btn-warning icon-container" href="#">
+             
+               <span> &nbsp; Cart &nbsp;</span>
+                <span className="badge text-bg-primary">4</span>
+              </a>
+            </li>
             <li className="nav-item">
               <a className="nav-link active" aria-current="page" href="#">
                 Register
@@ -38,11 +45,7 @@ function Header() {
                 Login
               </a>
             </li>
-            <li className="nav-item">
-              <a className="nav-link active" href="#">
-                Cart
-              </a>
-            </li>
+            
           </ul>
         </div>
       </div>

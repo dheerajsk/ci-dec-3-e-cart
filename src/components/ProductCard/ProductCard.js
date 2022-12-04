@@ -6,6 +6,19 @@ function ProductCard(props) {
 
   let product=props.item;
 
+  function handleAddToCartEvent(){
+    // store product to the localStorage.
+    let cartItems = localStorage.getItem("cartItems");
+    if(!cartItems){
+      cartItems=[];
+    }else{
+      cartItems=JSON.parse(cartItems);
+    }
+    cartItems.push(product);
+    localStorage.setItem("cartItems", JSON.stringify(cartItems))
+
+  }
+
   return (
     <div>
       <div className="card card-main">
@@ -17,9 +30,12 @@ function ProductCard(props) {
           <p className="card-text">
           {product.description}
           </p>
-          <a href="#" className="btn btn-success">
+          <button
+          onClick={handleAddToCartEvent}
+          className="btn btn-success"
+          >
             Add To Cart
-          </a>
+          </button>
         </div>
       </div>
     </div>
