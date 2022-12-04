@@ -8,7 +8,7 @@ function Home() {
   console.log("rerendering");
   const [products, setProducts] = useState([]);
   const [error, setError] = useState();
-  //   const [click, setClick] = useState(0);
+    const [count, setCount] = useState();
   //   const [click2, setClick2] = useState(0);
   // async call.
 
@@ -27,9 +27,14 @@ function Home() {
       });
   }, []);
 
+  function notifyHome(count){
+    console.log("Home is notified");
+    setCount(count);
+  }
+
   return (
     <div>
-      <Header />
+      <Header count={count} />
       <div className="container mt-3">
         {error && <h2 className="mt-3">No Products to Show</h2>}
         {/* <h2>{click}</h2>
@@ -50,7 +55,10 @@ function Home() {
         <div className="row">
           {products.map((p, i) => (
             <div key={i} className="col-md-3">
-              <ProductCard item={p} key={i} />
+              <ProductCard 
+              item={p} 
+              key={i}
+              notify={notifyHome} />
             </div>
           ))}
         </div>

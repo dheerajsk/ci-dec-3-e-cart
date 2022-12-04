@@ -1,6 +1,17 @@
 import "./Header.css";
 
-function Header() {
+import {useEffect, useState} from "react";
+
+function Header(props) {
+  const [cartItemCount, setItemCount] = useState(0);
+  useEffect(()=>{
+    let items = localStorage.getItem("cartItems");
+    if(items){
+      items = JSON.parse(items);
+      setItemCount(items.length);
+    }
+  },[props.count])
+
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
       <div className="container-fluid">
@@ -32,7 +43,11 @@ function Header() {
               <a className="btn btn-warning icon-container" href="#">
              
                <span> &nbsp; Cart &nbsp;</span>
-                <span className="badge text-bg-primary">4</span>
+               {
+                cartItemCount>0 &&
+                <span className="badge text-bg-primary">{cartItemCount}</span>
+               }
+                
               </a>
             </li>
             <li className="nav-item">
