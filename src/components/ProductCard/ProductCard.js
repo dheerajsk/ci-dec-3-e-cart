@@ -31,7 +31,8 @@ function ProductCard(props) {
           {product.description}
           </p>
           <button
-          onClick={handleAddToCartEvent}
+          // onClick={handleAddToCartEvent}
+          onClick={(event)=>{handleAddToCartEvent(event)}}
           className="btn btn-success"
           >
             Add To Cart

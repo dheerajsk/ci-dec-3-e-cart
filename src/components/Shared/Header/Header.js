@@ -15,7 +15,7 @@ function Header(props) {
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
       <div className="container-fluid">
-        <a className="navbar-brand icon-container" href="#">
+        <a className="navbar-brand icon-container" href="/">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="16"
@@ -40,7 +40,7 @@ function Header(props) {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="flex-items navbar-nav me-auto mb-2 mb-lg-0">
           <li className="nav-item">
-              <a className="btn btn-warning icon-container" href="#">
+              <a className="btn btn-warning icon-container" href="/cart">
              
                <span> &nbsp; Cart &nbsp;</span>
                {
