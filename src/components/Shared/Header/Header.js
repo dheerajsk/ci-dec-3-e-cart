@@ -51,16 +51,15 @@ function Header(props) {
               </a>
             </li>
             <li className="nav-item">
-              <a className="nav-link active" aria-current="page" href="#">
+              <a className="nav-link active" aria-current="page" href="/register">
                 Register
               </a>
             </li>
             <li className="nav-item">
-              <a className="nav-link active" href="#">
+              <a className="nav-link active" href="/login">
                 Login
               </a>
             </li>
-            
           </ul>
         </div>
       </div>

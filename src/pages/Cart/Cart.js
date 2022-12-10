@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import Header from "../../components/Shared/Header/Header";
-import CartItem from "../CartItem/CartItem";
+import CartItem from "../../components/CartItem/CartItem";
 
 function Cart() {
   const [items, setItems] = useState([]);

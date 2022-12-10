@@ -17,6 +17,7 @@ function ProductCard(props) {
     cartItems.push(product);
     localStorage.setItem("cartItems", JSON.stringify(cartItems))
     props.notify(cartItems.length);
+    
   }
 
   return (
