@@ -1,10 +1,30 @@
 import { useState } from "react";
 import "./Register.css";
+import { useNavigate } from "react-router-dom";
 
 function Register() {
   const [user, setUser] = useState({});
+  const navigate = useNavigate();
 
   function handleSubmit() {
+    fetch("http://localhost:4100/api/auth/register", {
+      method: "POST",
+      body: JSON.stringify(user),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((res) => {
+        console.log(res);
+        if (res.status == 200) {
+          navigate("/login");
+        } else if (res.status == 401) {
+          console.log("Unauthorized request");
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
     console.log(user);
   }
 
