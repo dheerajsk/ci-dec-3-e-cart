@@ -8,3 +8,5 @@ const store = configureStore({
         cartItems:cartReducer
     }
 });
+
+export default store;

@@ -13,7 +13,18 @@ const cartSlice = createSlice({
     initialState,
     reducers:{
         // define actions.
+        add:(state, action)=>{
+            console.log(action.payload);
+            console.log("Action add being performed");
+            state.value.push(action.payload);
+        }
     }
 });
+
+// exporting actions for components to call.
+export const {add} = cartSlice.actions;
+
+// selector to select cart data.
+export const cartSelector = (state)=> state.cartItems.value;
 
 export default cartSlice.reducer;

@@ -1,16 +1,11 @@
 import "./Header.css";
 
-import {useEffect, useState} from "react";
+import { useSelector } from "react-redux";
+import {cartSelector} from "../../../reducers/cartReducer";
 
 function Header(props) {
-  const [cartItemCount, setItemCount] = useState(0);
-  useEffect(()=>{
-    let items = localStorage.getItem("cartItems");
-    if(items){
-      items = JSON.parse(items);
-      setItemCount(items.length);
-    }
-  },[props.count])
+  
+  const cartItemCount = useSelector(cartSelector).length;
 
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
